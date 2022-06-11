@@ -1,6 +1,22 @@
 let key = "2cfda1f27f8f18422038c85cc30073ad"
-let url = `https://api.openweathermap.org/data/2.5/onecall?lat=42.882004&lon=74.582748&lang=ru&units=metric&appid=${key}`
-
+let $select = document.querySelector('select')
+let list = [
+    {
+        lat: 42.882004,
+        lon: 74.582748
+    },{
+        lat: 40.52828,
+        lon: 72.7985
+    }
+]
+let lat = list[0].lat
+let lon = list[0].lon
+$select.addEventListener('change', function(){
+    let index = $select.selectedIndex
+    lat = list[index].lat
+    lon = list[index].lon
+})
+let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&lang=ru&units=metric&appid=${key}`
 
 
 let $temp = document.querySelector('.temp')
